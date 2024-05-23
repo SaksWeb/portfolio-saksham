@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" href="download.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Saksham Shrivastava Portfolio</title>
     <style>
         /* Global Styles */
@@ -36,6 +45,152 @@
             padding: 20px;
         }
 
+        .navbar {
+
+            position: fixed;
+            top: 5px;
+            left: 10px;
+            right: 10px;
+            width: auto;
+            background-color: transparent;
+            /* Initially transparent */
+            z-index: 1000;
+            /* Ensure navbar is on top */
+            position: fixed;
+            transition: background-color 0.3s ease;
+
+            height: 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            border-radius: 20px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        a:hover {
+            color: orange;
+        }
+
+        .navbar .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 2rem;
+        }
+
+
+        .navbar .toggle_btn {
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .action_btn {
+            background-color: orange;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: scale 0.2 ease;
+        }
+
+        .action_btn:hover {
+            scale: 1.05;
+            color: #fff;
+
+        }
+
+        .action_btn:active {
+            scale: 0.95;
+        }
+
+
+
+        .dropdown_menu {
+            display: none;
+            position: fixed;
+            right: 2rem;
+            top: 60px;
+            width: 300px;
+            height: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+        }
+
+        .dropdown_menu.open {
+            height: 240px;
+            z-index: 1;
+        }
+
+        .dropdown_menu li {
+            padding: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+
+        }
+
+        .dropdown_menu .action_btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+        }
+
+
+
+        @media(max-width :992px) {
+
+            .navbar .links,
+            .navbar .action_btn {
+                display: none;
+            }
+
+            .navbar .toggle_btn {
+                display: block;
+            }
+
+            .dropdown_menu {
+                display: block;
+                z-index: 1;
+            }
+        }
+
+
+        @media(max-width :576px) {
+            .dropdown_menu {
+                left: 2rem;
+                width: unset;
+                z-index: 1;
+            }
+
+        }
+
         /* Header Styles */
         .hero {
             position: relative;
@@ -44,8 +199,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
             color: #fff;
+            padding: 90px;
         }
 
         .hero .content {
@@ -104,16 +260,24 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1;
+            border-radius: 50%;
+            -moz-box-shadow: 10 10 50px #f12a2a;
+            -webkit-box-shadow: 10 10 50px #1e1bec;
+            box-shadow: 10px 10px 90px #ce1414;
         }
 
         #scroll-up-img img {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
+
         }
 
         #scroll-up-img.show {
             opacity: 1;
             visibility: visible;
+
         }
 
         /* About Section */
@@ -125,7 +289,7 @@
             color: rgb(0, 0, 0);
             background-color: rgb(249, 249, 249);
         }
-       
+
 
         #about img {
             flex: 1 1 300px;
@@ -189,7 +353,7 @@
         .project-card {
             flex: 1;
             max-width: 300px;
-            background-color: #040404;
+            background-color: gray;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -210,14 +374,14 @@
 
         .project-description {
             font-size: 1rem;
-            margin-bottom: 15px;
+            margin-bottom: auto;
         }
 
         .project-link {
             display: inline-block;
             padding: 8px 20px;
             background-color: #007bff;
-            color: #ffffff;
+            color: #252323;
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease-in-out;
@@ -226,6 +390,9 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 10 10 50px #f12a2a;
+            -webkit-box-shadow: green #1e1bec;
+            box-shadow: 10px 10px 90px greenyellow;
         }
 
         .project-link:hover {
@@ -308,7 +475,7 @@
         }
 
         /* Stylish Horizontal Scrollbar */
-        
+
         .skills::-webkit-scrollbar {
             height: 11px;
             width: 5px;
@@ -323,7 +490,7 @@
             background: #9e9bf8;
         }
 
-      
+
         /* Experience Section Styles */
         .experience-section {
             background-color: #f5f5f5;
@@ -377,7 +544,7 @@
             overflow: hidden;
             text-align: center;
         }
-    
+
         #contact video {
             position: absolute;
             top: 0;
@@ -387,7 +554,7 @@
             object-fit: cover;
             z-index: -1;
         }
-    
+
         .container {
             position: relative;
             z-index: 1;
@@ -427,40 +594,41 @@
             background-color: #0056b3;
         }
 
-         /* Footer Styles */
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 20px 0;
-      }
-  
-      footer p {
-        margin: 0;
-      }
-  
-      .social-icons {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        padding: 0;
-        margin: 20px 0 0 0;
-      }
-  
-      .social-icons li {
-        margin: 0 10px;
-      }
-  
-      .social-icons a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: color 0.3s ease;
-      }
-  
-      .social-icons a:hover {
-        color: #3498db;
-      }
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+
+        .social-icons li {
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #3498db;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -493,34 +661,131 @@
                 transform: translateY(0);
             }
         }
-        
-    </style>
-</head>
- <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-RRQH820Z83"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag() { dataLayer.push(arguments); }
-   gtag('js', new Date());
 
-   gtag('config', 'G-RRQH820Z83');
- </script>
+        /* Services Section */
+        .services {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            border-radius: 30%;
+        }
+
+        .service {
+            flex: 1;
+            max-width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: #007bff;
+            margin-bottom: 15px;
+            z-index: 0;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            z-index: 0;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            z-index: 0;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            color: #17c4db;
+            z-index: 0;
+            -moz-box-shadow: 10 10 50px #f12a2a;
+            -webkit-box-shadow: 10 10 50px #1e1bec;
+            box-shadow: 10px 10px 90px #05c4d2;
+        }
+    </style>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2081785002961477"
+        crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RRQH820Z83"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-RRQH820Z83');
+</script>
 
 
 <body>
-    
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="overlay"></div>
-        <video autoplay muted loop>
-            <source src="video.mp4" type="video/mp4">
-        </video>
-        <div class="content fade-in">
-            <h1>Welcome to</h1>
-            <h2>Saksham Shrivastava's Portfolio</h2>
-            <a href="#projects" class="btn">View Projects</a>
+
+
+
+    <div class="navbar">
+        <div class="logo"><a href="#">Saksham Shrivastava</a></div>
+        <ul class="links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
         </div>
-    </header>
+
+    </div>
+    <div class="dropdown_menu">
+        <ul class="links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <header class="hero">
+            <div class="overlay">
+
+            </div>
+
+            <video autoplay muted loop>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+            <div class="content fade-in">
+                <h1>Welcome to</h1>
+                <h2>Saksham Shrivastava's Portfolio</h2>
+                <a href="#projects" class="btn">View Projects</a>
+            </div>
+        </header>
+    </section>
 
     <!-- Scroll Up Image -->
     <div id="scroll-up-img" onclick="scrollToTop()">
@@ -545,80 +810,143 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects fade-in-up">
+    <section id="projects" class="projects fade-in-up" style="z-index: 0;">
         <div class="container">
             <h2>Projects</h2>
             <div class="project-cards">
                 <div class="project-card">
                     <img src="churn.jpeg" alt="Project 1">
-                    <h3 class="project-title" style="text-decoration: underline;">Churn Prediction</h3>
-                    <p class="project-description">Led a team in the implementation of a Churn Prediction Model for a telecommunications company during my college
-                        major project.Analyzed a comprehensive dataset sourced from Kaggle, examining key factors such as contract details, monthly
-                        charges, and service usage patterns to enhance model accuracy and efficiency.</p>
+                    <h3 class="project-title" style="text-decoration: underline;">Churn Prediction</h3> <br>
+                    <i>
+                        <p class="project-description">Led a team in implementing a Churn Prediction Model for a
+                            telecommunications company during my college major project, analyzing a comprehensive Kaggle
+                            dataset on contract details, monthly charges, and service usage patterns to enhance model
+                            accuracy and efficiency.
 
-                    <a href="https://github.com/SaksWeb/Churn-Prediction" target="_blank" class="project-link">View in GitHub</a>
+
+
+
+
+                        </p>
+                    </i>
+
+                    <a href="https://github.com/SaksWeb/Churn-Prediction" target="_blank" class="project-link">View in
+                        GitHub</a>
                 </div>
                 <div class="project-card">
                     <img src="dashboard.png" alt="Project 2">
-                    <h3 class="project-title" style="text-decoration: underline;">Dynamic Data Analysis</h3>
-                    <p class="project-description">Created an intuitive user interface allowing users to upload CSV or Excel files for analysis.Utilized pandas for data manipulation, descriptive statistics, and data type analysis, providing insights into the
-                        structure and composition of the dataset.
+                    <h3 class="project-title" style="text-decoration: underline;">Dynamic Data Analysis</h3> <br>
+                    <i>
+                        <p class="project-description">Created an intuitive user interface allowing users to upload CSV
+                            or
+                            Excel files for analysis.Utilized pandas for data manipulation, descriptive statistics, and
+                            data
+                            type analysis, providing insights into the
+                            structure and composition of the dataset.
                         </p>
-                    <a href="https://github.com/SaksWeb/EDA_Dashboard_Streamlit" target="_blank" class="project-link">View in GitHub</a>
+                    </i>
+                    <a href="https://github.com/SaksWeb/EDA_Dashboard_Streamlit" target="_blank"
+                        class="project-link">View in GitHub</a>
                 </div>
                 <div class="project-card">
                     <img src="Atrial Fibrillation Classification.png" alt="Project 3">
-                    <h3 class="project-title"style="text-decoration: underline;">Atrial Fibrillation Classification</h3>
-                    <p class="project-description">This is a CNN based model which aims to automatically classify the ECG signals of a normal patient vs. a patient with Atrial Fibrillation and has been trained to achieve up to 93.33% validation accuracy.The CNN used here is 1D Convolutional Neural Networks.</p>
-                    <a href="https://github.com/SaksWeb/ECG-Atrial-Fibrillation-Classification-Using-CNN" target="_blank" class="project-link">View in GitHub</a>
+                    <h3 class="project-title" style="text-decoration: underline;">Atrial Fibrillation Classification
+                    </h3><br>
+                    <i>
+                        <p class="project-description">This is a CNN based model which aims to automatically classify
+                            the
+                            ECG signals of a normal patient vs. a patient with Atrial Fibrillation and has been trained
+                            to
+                            achieve up to 93.33% validation accuracy.The CNN used here is 1D Convolutional Neural
+                            Networks.
+                        </p>
+                    </i>
+                    <a href="https://github.com/SaksWeb/ECG-Atrial-Fibrillation-Classification-Using-CNN"
+                        target="_blank" class="project-link">View in GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="services-container">
+                <div class="service">
+                    <i class="fas fa-code service-icon"></i>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">Building responsive and dynamic websites using the latest
+                        technologies and best practices.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-project-diagram service-icon"></i>
+                    <h3 class="service-title">Python Projects</h3>
+                    <p class="service-description">Developing robust Python applications for data science, automation,
+                        and more.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-server service-icon"></i>
+                    <h3 class="service-title">Flask & Django</h3>
+                    <p class="service-description">Creating scalable web applications using Flask and Django frameworks.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2>Skills</h2>
         <div class="skills-container">
-            
+
             <div class="skill fade-in">
                 <div class="skill-icon" style="background-image: url('python.png');"></div>
                 <h3 class="skill-title">Python</h3>
-                <p class="skill-description">Experienced in Python for data analysis, web development, and automation.</p>
-                <a href="https://drive.google.com/file/d/1zlqPKYtN6LGHEiq7mnoEH4BEk8eiUKHd/view?usp=sharing" target="_blank" class="project-link">View Certificate</a>
+                <p class="skill-description">Experienced in Python for data analysis, web development, and automation.
+                </p>
+                <a href="https://drive.google.com/file/d/1zlqPKYtN6LGHEiq7mnoEH4BEk8eiUKHd/view?usp=sharing"
+                    target="_blank" class="project-link">View Certificate</a>
             </div>
             <div class="skill fade-in">
                 <div class="skill-icon" style="background-image: url('c++.png');"></div>
                 <h3 class="skill-title">C++</h3>
-                <p class="skill-description">Proficient in C++ for system programming and performance-critical applications.</p>
-                <a href="https://drive.google.com/file/d/1ZI7BPrpOy6Y7rc45Pa9BPPbfmcETn72g/view?usp=sharing" target="_blank" class="project-link">View Certificate</a>
+                <p class="skill-description">Proficient in C++ for system programming and performance-critical
+                    applications.</p>
+                <a href="https://drive.google.com/file/d/1ZI7BPrpOy6Y7rc45Pa9BPPbfmcETn72g/view?usp=sharing"
+                    target="_blank" class="project-link">View Certificate</a>
             </div>
             <div class="skill fade-in">
                 <div class="skill-icon" style="background-image: url('ml.png');"></div>
                 <h3 class="skill-title">Machine Learning</h3>
                 <p class="skill-description">Skilled in building and deploying machine learning models.</p>
-                <a href="AWS_Academy_Graduate___AWS_Academy_Machine_Learning_Foundations_Badge20230805-28-4b3cdc.pdf" target="_blank" class="project-link">View Certificate</a>
+                <a href="AWS_Academy_Graduate___AWS_Academy_Machine_Learning_Foundations_Badge20230805-28-4b3cdc.pdf"
+                    target="_blank" class="project-link">View Certificate</a>
             </div>
             <div class="skill fade-in">
                 <div class="skill-icon" style="background-image: url('c.png');"></div>
                 <h3 class="skill-title">C</h3>
-                <p class="skill-description">Proficient in C for system programming and performance-critical applications.</p>
-                <a href="https://drive.google.com/file/d/1ZjyRBYwMsccP48Dk0JU_FSyJCmfk0ICP/view?usp=sharing" target="_blank" class="project-link">View Certificate</a>
+                <p class="skill-description">Proficient in C for system programming and performance-critical
+                    applications.</p>
+                <a href="https://drive.google.com/file/d/1ZjyRBYwMsccP48Dk0JU_FSyJCmfk0ICP/view?usp=sharing"
+                    target="_blank" class="project-link">View Certificate</a>
             </div>
             <div class="skill fade-in">
                 <div class="skill-icon" style="background-image: url('ds.jpeg');"></div>
                 <h3 class="skill-title">Data Science</h3>
                 <p class="skill-description">Proficient in data analysis and visualization techniques.</p>
-                <a href="AWS_Academy_Graduate___AWS_Academy_Data_Engineering_Badge20230805-28-tjetz9.pdf" target="_blank" class="project-link">View Certificate</a>
+                <a href="AWS_Academy_Graduate___AWS_Academy_Data_Engineering_Badge20230805-28-tjetz9.pdf"
+                    target="_blank" class="project-link">View Certificate</a>
             </div>
             <div class="skill fade-in">
                 <div class="skill-icon" style="background-image: url('cloud.png');"></div>
                 <h3 class="skill-title">Cloud Computing</h3>
                 <p class="skill-description">Knowledgeable in Cloud Computing</p>
-                <a href="https://drive.google.com/file/d/1o8I4KOEeIwSAazvP_Y_JKYCNB-dnftcy/view?usp=sharing" target="_blank" class="project-link">View Certificate</a>
+                <a href="https://drive.google.com/file/d/1o8I4KOEeIwSAazvP_Y_JKYCNB-dnftcy/view?usp=sharing"
+                    target="_blank" class="project-link">View Certificate</a>
             </div>
         </div>
-        
+
     </section>
 
     <!-- Experience Section -->
@@ -630,24 +958,24 @@
                     <h3>Coderscave</h3>
                     <p>Role: Data Science Intern</p>
                     <li>Performed data analysis and visualization tasks</li>
-              <li>Assisted in developing machine learning models</li>
-              <li>Collaborated with the team to solve real-world challenges</li>
+                    <li>Assisted in developing machine learning models</li>
+                    <li>Collaborated with the team to solve real-world challenges</li>
                 </div>
                 <div class="experience-card">
                     <h3>Codeclause</h3>
                     <p>Role: Python Developer Intern</p>
-                    
-                        <li>Contributed to building Python applications</li>
-                        <li>Debugged and enhanced existing codebase</li>
-                        <li>Participated in code reviews and discussions</li>
-                      
+
+                    <li>Contributed to building Python applications</li>
+                    <li>Debugged and enhanced existing codebase</li>
+                    <li>Participated in code reviews and discussions</li>
+
                 </div>
                 <div class="experience-card">
                     <h3>Internshala</h3>
                     <p>Role: Internshala Student Partner</p>
                     <li>Promoted internship opportunities to fellow students</li>
-              <li>Conducted workshops on resume building and interview skills</li>
-              <li>Collaborated with Internshala to enhance campus reach</li>
+                    <li>Conducted workshops on resume building and interview skills</li>
+                    <li>Collaborated with Internshala to enhance campus reach</li>
                 </div>
             </div>
         </div>
@@ -673,16 +1001,17 @@
     </section>
 
     <!-- Footer -->
-  <!-- Footer -->
-  <footer>
-    
-    <p>&copy; 2023 Saksham Shrivastava. All rights reserved.</p>
-    <ul class="social-icons">
-      <li><a href="https://www.linkedin.com/in/saksham-shrivastava-a77786205" class="fab fa-linkedin"></a></li>
-      <li><a href="https://github.com/SaksWeb" class="fab fa-github"></a></li>
-      <li><a href="https://instagram.com/sakshamshrivastava662?igshid=YmMyMTA2M2Y=" class="fab fa-instagram"></a></li>
-    </ul>
-  </footer>
+    <!-- Footer -->
+    <footer>
+
+        <p>&copy; 2023 Saksham Shrivastava. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="https://www.linkedin.com/in/saksham-shrivastava-a77786205" class="fab fa-linkedin"></a></li>
+            <li><a href="https://github.com/SaksWeb" class="fab fa-github"></a></li>
+            <li><a href="https://instagram.com/sakshamshrivastava662?igshid=YmMyMTA2M2Y=" class="fab fa-instagram"></a>
+            </li>
+        </ul>
+    </footer>
 
     <!-- JavaScript for Scroll Up Button and Skills Scroll -->
     <script>
@@ -701,8 +1030,41 @@
                 behavior: 'smooth'
             });
         }
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
 
-       
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.className = isOpen
+                ? 'fa-solid fa-xmark'
+                : 'fa-solid fa-bars';
+        }
+
+        window.addEventListener('scroll', function () {
+            var navbar = document.querySelector('.navbar');
+            var aboutSection = document.getElementById('about').offsetTop;
+            var projectsSection = document.getElementById('projects').offsetTop;
+            var servicesSection = document.getElementById('services').offsetTop;
+            var skillsSection = document.getElementById('skills').offsetTop;
+
+            if (window.scrollY <= aboutSection) {
+                navbar.style.backgroundColor = 'transparent';
+            } else if (window.scrollY >= aboutSection && window.scrollY < projectsSection) {
+                navbar.style.backgroundColor = 'red';
+            } else if (window.scrollY >= projectsSection && window.scrollY < servicesSection) {
+                navbar.style.backgroundColor = 'blue';
+            } else if (window.scrollY >= servicesSection && window.scrollY < skillsSection) {
+                navbar.style.backgroundColor = 'purple';
+            } else if (window.scrollY >= skillsSection) {
+                navbar.style.backgroundColor = 'orange';
+            }
+        });
+
+
+
+
     </script>
 </body>
 
