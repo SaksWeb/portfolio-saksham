@@ -987,15 +987,32 @@
             <source src="email1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <div class="contact-form">
+            
+            
         <div class="container">
             <h2>Contact Me</h2>
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <form method="POST" id="form">
+                <input type="hidden" name="from_name" value="Portoflio message">
                 <input type="hidden" name="access_key" value="f115796d-53bd-4fc6-b33a-f059dad06d80">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="tel" name="phone" placeholder="Your Phone Number" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
+                <div class="input-box">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div>
+                <input type="tel" name="phone" placeholder="Your Phone Number" required></div>
+                <div class="input-box">
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="input-box">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="input-box">
+                    <button type="submit" class="btn-1">Send Message</button>
+                </div>
+                <div id="result"></div>
             </form>
         </div>
     </section>
@@ -1015,6 +1032,7 @@
 
     <!-- JavaScript for Scroll Up Button and Skills Scroll -->
     <script>
+        
         window.addEventListener('scroll', function () {
             const scrollUpImg = document.getElementById('scroll-up-img');
             if (window.scrollY > 300) {
@@ -1065,6 +1083,46 @@
 
 
 
+    </script>
+    <script>
+        const form = document.getElementById('form');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait..."
+
+            fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        result.innerHTML = json.message;
+                    } else {
+                        console.log(response);
+                        result.innerHTML = json.message;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    result.innerHTML = "Something went wrong!";
+                })
+                .then(function() {
+                    form.reset();
+                    setTimeout(() => {
+                        result.style.display = "none";
+                    }, 3000);
+                });
+        });
     </script>
 </body>
 
