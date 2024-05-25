@@ -1,730 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+    <title>Portfolio</title>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Saksham Shrivastava's Portfolio showcasing skills, projects, and expertise in Python, C++, Data Science, Machine Learning, and more.">
-    <meta name="keywords"
-        content="Saksham Shrivastava, Portfolio, Python, C++, Data Science, Machine Learning, Web Development">
-    <meta name="author" content="Saksham Shrivastava">
-    <meta property="og:title" content="Saksham Shrivastava's Portfolio">
-    <meta property="og:description"
-        content="Explore Saksham Shrivastava's portfolio showcasing skills, projects, and expertise.">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" href="download.jpg" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <title>Saksham Shrivastava Portfolio</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/skins/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/skins/color-1.css" class="alternate-style" title="color-1" disabled>
+    <link rel="stylesheet" href="./styles/skins/color-2.css" class="alternate-style" title="color-2" disabled>
+    <link rel="stylesheet" href="./styles/skins/color-3.css" class="alternate-style" title="color-3" disabled>
+    <link rel="stylesheet" href="./styles/skins/color-4.css" class="alternate-style" title="color-4" disabled>
+    <link rel="stylesheet" href="./styles/skins/color-5.css" class="alternate-style" title="color-5" disabled>
+    <link rel="stylesheet" href="./styles/style-switcher.css">
     <style>
-        /* Global Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            padding-top: 0px;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .navbar {
-
-            position: fixed;
-            top: 5px;
-            left: 10px;
-            right: 10px;
-            width: auto;
-            background-color: transparent;
-            /* Initially transparent */
-            z-index: 1000;
-            /* Ensure navbar is on top */
-            position: fixed;
-            transition: background-color 0.3s ease;
-
-            height: 50px;
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            border-radius: 20px;
-        }
-
-        li {
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        a:hover {
-            color: orange;
-        }
-
-        .navbar .logo a {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .navbar .links {
-            display: flex;
-            gap: 2rem;
-        }
-
-
-        .navbar .toggle_btn {
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-        }
-
-        .action_btn {
-            background-color: orange;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border: none;
-            outline: none;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: scale 0.2 ease;
-        }
-
-        .action_btn:hover {
-            scale: 1.05;
-            color: #fff;
-
-        }
-
-        .action_btn:active {
-            scale: 0.95;
-        }
-
-
-
-        .dropdown_menu {
-            display: none;
-            position: fixed;
-            right: 2rem;
-            top: 60px;
-            width: 300px;
-            height: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
-        }
-
-        .dropdown_menu.open {
-            height: 240px;
-            z-index: 1;
-        }
-
-        .dropdown_menu li {
-            padding: 0.7rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-
-        }
-
-        .dropdown_menu .action_btn {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 1;
-        }
-
-
-
-        @media(max-width :992px) {
-
-            .navbar .links,
-            .navbar .action_btn {
-                display: none;
-            }
-
-            .navbar .toggle_btn {
-                display: block;
-            }
-
-            .dropdown_menu {
-                display: block;
-                z-index: 1;
-            }
-        }
-
-
-        @media(max-width :576px) {
-            .dropdown_menu {
-                left: 2rem;
-                width: unset;
-                z-index: 1;
-            }
-
-        }
-
-        /* Header Styles */
-        .hero {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #fff;
-            padding: 90px;
-        }
-
-        .hero .content {
-            text-align: center;
-            z-index: 1;
-        }
-
-        .hero .content h1,
-        .hero .content h2 {
-            margin: 0;
-        }
-
-        .hero .content .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .hero .content .btn:hover {
-            background-color: #2980b9;
-        }
-
-        .hero .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
-
-        .hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        /* Scroll Up Image Styles */
-        #scroll-up-img {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            z-index: 1;
-            border-radius: 50%;
-            -moz-box-shadow: 10 10 50px #f12a2a;
-            -webkit-box-shadow: 10 10 50px #1e1bec;
-            box-shadow: 10px 10px 90px #ce1414;
-        }
-
-        #scroll-up-img img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-
-        }
-
-        #scroll-up-img.show {
-            opacity: 1;
-            visibility: visible;
-
-        }
-
-        /* About Section */
-        #about {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            margin: 0px 0;
-            color: rgb(0, 0, 0);
-            background-color: rgb(249, 249, 249);
-        }
-
-
-        #about img {
-            flex: 1 1 300px;
-            max-width: 100%;
-            border-radius: 50%;
-            margin-right: 20px;
-            margin-left: 20px;
-            -moz-box-shadow: 10 10 50px #f12a2a;
-            -webkit-box-shadow: 10 10 50px #1e1bec;
-            box-shadow: 10px 10px 90px #ce1414;
-        }
-
-        #about div {
-            flex: 2 1 500px;
-            padding: 20px;
-        }
-
-        #about h2 {
-            font-size: 2.5em;
-            color: #007bff;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        #about p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            #about {
-                flex-direction: column;
-            }
-
-            #about img {
-                margin-bottom: 20px;
-            }
-        }
-
-        /* Projects Section Styles */
-        .projects {
-            background-color: #eba70a;
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .projects h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .project-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .project-card {
-            flex: 1;
-            max-width: 300px;
-            background-color: gray;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        #result {
             color: white;
-        }
-
-        .project-card img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        .project-description {
-            font-size: 1rem;
-            margin-bottom: auto;
-        }
-
-        .project-link {
-            display: inline-block;
-            padding: 8px 20px;
-            background-color: #007bff;
-            color: #252323;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            -moz-box-shadow: 10 10 50px #f12a2a;
-            -webkit-box-shadow: green #1e1bec;
-            box-shadow: 10px 10px 90px greenyellow;
-        }
-
-        .project-link:hover {
-            background-color: #0056b3;
-        }
-
-        /* Skills Section Styles */
-        .skills {
-            background-color: #231dcf;
-            padding: 50px 0;
-            overflow-x: scroll;
-            position: relative;
-        }
-
-        .skills h2 {
-            font-size: 2.5em;
-            color: #ffffff;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .skills-container {
-            display: flex;
-            gap: 35px;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 20px;
-            white-space: nowrap;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .skill {
-            background-color: #18d0e0;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
-            text-align: center;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            white-space: normal;
-            min-width: 200px;
-            max-width: 250px;
-        }
-
-        .skill-icon {
-            width: 80px;
-            height: 80px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            margin: 0 auto;
-        }
-
-        .skill-title {
-            font-size: 1.2rem;
-            text-align: center;
-            color: #640c5b;
-            margin-top: 15px;
-        }
-
-        .skill-description {
-            font-size: 0.9rem;
-            text-align: center;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        .expertise {
-            font-size: 0.8rem;
-            color: #360f98;
-            margin-top: 10px;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Stylish Horizontal Scrollbar */
-
-        .skills::-webkit-scrollbar {
-            height: 11px;
-            width: 5px;
-        }
-
-        .skills::-webkit-scrollbar-thumb {
-            background-color: #e00f0f;
-            border-radius: 15px;
-        }
-
-        .skills::-webkit-scrollbar-track {
-            background: #9e9bf8;
-        }
-
-
-        /* Experience Section Styles */
-        .experience-section {
-            background-color: #f5f5f5;
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .experience-section h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .experience-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .experience-card {
-            flex: 1;
-            max-width: 300px;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: left;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .experience-card h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .experience-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        #contact {
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        #contact video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        #contact h2 {
-            font-size: 2.5em;
-            color: #ffffff;
-            margin-bottom: 40px;
-        }
-
-        #contact form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        #contact form input,
-        #contact form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        #contact form button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            color: #ffffff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #contact form button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 20px 0 0 0;
-        }
-
-        .social-icons li {
-            margin: 0 10px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #3498db;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .fade-in-up {
-            animation: fadeIn 1s ease-in-out, fadeInUp 1s ease-in-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Services Section */
-        .services {
-            background-color: #f5f5f5;
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .services h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 40px;
-        }
-
-        .services-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            border-radius: 30%;
-        }
-
-        .service {
-            flex: 1;
-            max-width: 300px;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .service-icon {
-            font-size: 50px;
-            color: #007bff;
-            margin-bottom: 15px;
-            z-index: 0;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            z-index: 0;
-        }
-
-        .service-description {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            z-index: 0;
-        }
-
-        .service:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            color: #17c4db;
-            z-index: 0;
-            -moz-box-shadow: 10 10 50px #f12a2a;
-            -webkit-box-shadow: 10 10 50px #1e1bec;
-            box-shadow: 10px 10px 90px #05c4d2;
         }
     </style>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2081785002961477"
-        crossorigin="anonymous"></script>
+</head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2081785002961477"
+    crossorigin="anonymous"></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RRQH820Z83"></script>
@@ -738,371 +37,861 @@
 
 
 <body>
-
-
-
-    <div class="navbar">
-        <div class="logo"><a href="#">Saksham Shrivastava</a></div>
-        <ul class="links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="toggle_btn">
-            <i class="fa-solid fa-bars"></i>
+    <div class="main-container">
+        <!--Navbar Section Starts-->
+        <div class="aside">
+            <div class="logo">
+                <a href="#"><span>S</span>aksham</a>
+            </div>
+            <div class="nav-toggler">
+                <span></span>
+            </div>
+            <ul class="nav">
+                <li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
+                <li><a href="#work"><i class="fa fa-briefcase"></i>Experience</a></li>
+                <li><a href="#portfolio"><i class="fa fa-list"></i>Portfolio</a></li>
+                <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+            </ul>
         </div>
+        <!--Navbar Section Ends-->
+
+        <div class="main-content">
+            <!--Home Page Section Starts-->
+            <section class="home active section" id="home">
+                <div class="container">
+                    <div class="row">
+                        <div class="home-info padd-15">
+                            <h3 class="hello">Hello, my name is <span class="name">Saksham Shrivastava</span></h3>
+                            <h3 class="my-profession">I am a <span class="typing">Fullstack Developer</span></h3>
+                            <p>I am a final-year B.Tech student majoring in Computer Science and Engineering with a
+                                specialization in Data Science. I have practical experience with data science tools,
+                                machine learning algorithms, and Python programming, as well as front-end development.
+                                My projects bridge technical analysis and user-friendly design, showcasing my ability to
+                                integrate data insights with intuitive interfaces. I am passionate about using
+                                technology to solve real-world problems and eager to contribute to innovative projects.
+                            </p>
+
+                            <div class="home-social padd-15">
+                                <a href="https://www.linkedin.com/in/saksham-shrivastava-a77786205" target="_blank"
+                                    class="home-social-icon"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://github.com/SaksWeb" target="_blank" class="home-social-icon"><i
+                                        class="fa-brands fa-square-github"></i></a>
+                                <a href="https://instagram.com/sakshamshrivastava662?igshid=YmMyMTA2M2Y="
+                                    target="_blank" class="home-social-icon"><i
+                                        class="fa-brands fa-square-instagram"></i></a>
+
+
+
+                            </div>
+                        </div>
+                        <div class="home-img padd-15">
+                            <img src="./styles/imgs/myself.png" alt="profile">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Home Page Section Ends-->
+            <!--About Section Starts-->
+            <section class="about section" id="about">
+                <div class="row">
+                    <div class="section-title padd-15">
+                        <h2>About Me</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="about-content padd-15">
+                        <div class="row">
+                            <div class="about-text padd-15">
+                                <h3>I'm Saksham Shrivastava and <span>Web Developer</span></h3>
+                                <p>I am an enthusiastic and responsible person, with time management being my biggest
+                                    strength. Besides my love for coding, I enjoy traveling and playing cricket, with MS
+                                    Dhoni as my idol cricketer. My journey began with a passion for programming and a
+                                    curiosity for data. Over the years, I've honed my skills through various projects
+                                    and real-world applications, always striving to learn and grow in this ever-evolving
+                                    field.
+
+                                    I'm constantly exploring new technologies and methodologies to stay at the forefront
+                                    of the industry. Let's connect and create something amazing together!</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="buttons padd-15">
+                                <a href="https://www.youtube.com/@DharmikDarpan-2509" target="_blank"
+                                    class="btn">Youtube Channel</a>
+                                <a href="https://drive.google.com/file/d/1WOoQrF_e9h2ImPwpud3el_mUuNZm9gEp/view?usp=sharing"
+                                    target="_blank" class="btn hire-me">Download CV</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="education padd-15">
+                                <h3 class="title">Education</h3>
+                                <div class="row">
+                                    <div class="timeline-box padd-15">
+                                        <div class="timeline shadow-dark">
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-graduation-cap"></i> Gyan Ganga Institute of
+                                                    Technology and Sciences
+                                                </h3>
+                                                <h4 class="timeline-date"><i class="fa fa-calendar"></i> 2020-2024</h4>
+                                                <h4 class="timeline-text"><i></i> Rajiv Gandhi Proudyogiki
+                                                    Vishwavidyalaya</h4>
+                                                <p class="timeline-text">B.Tech in Data Science <br /> Grade : 8.39
+                                                    CGPA</p>
+
+                                            </div>
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-graduation-cap"></i> Guru Gobind Singh Khalsa Higher
+                                                    Secondary School G.C.F.
+                                                </h3>
+                                                <h4 class="timeline-date"><i class="fa fa-calendar"></i> 2019-2020</h4>
+                                                <p class="timeline-text">MP Board - PCM<br />
+                                                <p class="timeline-text">Class - XII <br /> </p>
+                                                </p>
+
+                                            </div>
+                                            <div class="timeline-item" style="margin-bottom: 30px;">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-graduation-cap"></i> Guru Gobind Singh Khalsa Higher
+                                                    Secondary School G.C.F.
+                                                </h3>
+                                                <h4 class="timeline-date"><i class="fa fa-calendar"></i> 2017-2018</h4>
+                                                <p class="timeline-text">MP Board <br /> </p>
+                                                <p class="timeline-text">Class-X <br /> </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--About Section Ends-->
+            <!--Work Section Starts-->
+            <section class="work section" id="work">
+                <div class="row">
+                    <div class="section-title padd-15">
+                        <h2>Experience</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="about-content padd-15">
+
+                        <div class="row">
+                            <div class="education padd-15">
+                                <h3 class="title">Work Experience</h3>
+                                <div class="row">
+                                    <div class="timeline-box padd-15">
+                                        <div class="timeline shadow-dark">
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-briefcase"></i>Coderscave
+                                                </h3>
+                                                <h3 class="timeline-title" style="font-style: italic;">
+                                                    Data Science Intern
+                                                </h3>
+                                                <h4 class="timeline-date"><i class="fa fa-calendar"></i>
+                                                    2023
+
+                                                </h4>
+                                                <p class="timeline-text">
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Performed data
+                                                    analysis and visualization tasks<br />
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Assisted in
+                                                    developing machine learning models<br>
+
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Collaborated
+                                                    with the team to solve real-world challenges<br>
+
+                                                </p>
+
+                                            </div>
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-briefcase"></i>Codeclause
+                                                </h3>
+                                                <h3 class="timeline-title" style="font-style: italic;">
+                                                    Python Developer Intern
+                                                </h3>
+                                                <h4 class="timeline-date"><i class="fa fa-calendar"></i>
+                                                    2023
+                                                </h4>
+                                                <p class="timeline-text">
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i> Contributed to
+                                                    building Python applications<br />
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Debugged and
+                                                    enhanced existing codebase<br>
+
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Participated in
+                                                    code reviews and discussions<br>
+
+                                                </p>
+
+                                            </div>
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-briefcase"></i> Internshala
+                                                </h3>
+                                                <h3 class="timeline-title" style="font-style: italic;">
+                                                    Internshala Student Partner
+                                                </h3>
+                                                <h4 class="timeline-date"><i class="fa fa-calendar"></i> 2023
+                                                </h4>
+                                                <p class="timeline-text">
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Promoted
+                                                    internship opportunities to fellow students<br />
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Conducted
+                                                    workshops on resume building and interview skills<br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Collaborated
+                                                    with Internshala to enhance campus reach<br>
+
+
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="education padd-15">
+                                <h3 class="title">Leadership</h3>
+                                <div class="row">
+                                    <div class="timeline-box padd-15">
+                                        <div class="timeline shadow-dark">
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-briefcase"></i> Smart India Hackathon (SIH) 2023
+                                                </h3>
+                                                <h3 class="timeline-title" style="font-style: italic;">
+                                                    Team Led
+                                                </h3>
+
+                                                </h4>
+                                                <p class="timeline-text">
+
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Highlights
+                                                    participation in a prestigious national-level hackathon, indicating
+                                                    involvement in competitive and innovative endeavors.
+                                                    <br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Demonstrates
+                                                    leadership capabilities in a high-pressure, real-world scenario,
+                                                    showcasing the ability to lead under tight deadlines and
+                                                    constraints.
+                                                    <br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Implies
+                                                    experience in fostering teamwork, collaboration, and innovation,
+                                                    essential for success in hackathon environments.
+                                                    <br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Suggests
+                                                    proficiency in problem-solving and creative thinking, as hackathons
+                                                    often require rapid ideation and prototyping.
+                                                    <br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Indicates
+                                                    familiarity with emerging technologies and trends in the tech
+                                                    industry, as hackathons typically involve cutting-edge solutions.
+                                                    <br>
+
+                                                </p>
+
+                                            </div>
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h3 class="timeline-title">
+                                                    <i class="fa fa-briefcase"></i> College Projects
+                                                </h3>
+                                                <p class="timeline-text">
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Demonstrates
+                                                    leadership skills in a college setting, implying the ability to
+                                                    organize and motivate peers toward a common goal.
+                                                    <br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Highlights
+                                                    experience in project management, suggesting proficiency in
+                                                    planning, delegation, and execution.
+                                                    <br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Implies
+                                                    capability in decision-making and problem-solving, as leaders often
+                                                    face challenges and need to navigate them effectively. <br>
+                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Reflects the
+                                                    ability to communicate and collaborate with team members, essential
+                                                    for coordinating efforts and achieving objectives.
+                                                    <br>
+
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Work Section Ends-->
+            <!--Portfolio Section Starts-->
+            <section class="portfolio section" id="portfolio">
+
+                <div class="section-title padd-15">
+                    <h2>Portfolio</h2>
+                </div>
+                <!--Skills Section Starts-->
+                <div class="row">
+                    <div class="skills padd-15">
+                        <div style="text-align: center;">
+                            <h3 class="title">Skills</h3>
+                        </div>
+                        <div class="row">
+                            <div class="skills-content padd-15">
+                                <div class="row">
+                                    <div class="skill-item padd-15">
+                                        <h5>Python</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 95%;"></div>
+                                            <div class="skill-percent">95%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>HTML</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 82%;"></div>
+                                            <div class="skill-percent">82%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>CSS</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 78%;"></div>
+                                            <div class="skill-percent">78%</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="skills-content padd-15">
+                                <div class="row">
+                                    <div class="skill-item padd-15">
+                                        <h5>Flask</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 72%;"></div>
+                                            <div class="skill-percent">72%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>DSA</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 70%;"></div>
+                                            <div class="skill-percent">70%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>JavaScript</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 65%;"></div>
+                                            <div class="skill-percent">65%</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="skills-content padd-15">
+                                <div class="row">
+                                    <div class="skill-item padd-15">
+                                        <h5>Django</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 62%;"></div>
+                                            <div class="skill-percent">62%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Data Analysis</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 80%;"></div>
+                                            <div class="skill-percent">80%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Machine Learning</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 90%;"></div>
+                                            <div class="skill-percent">90%</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="skills-content padd-15">
+                                <div class="row">
+                                    <div class="skill-item padd-15">
+                                        <h5>Streamlit</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 88%;"></div>
+                                            <div class="skill-percent">88%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Git</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 60%;"></div>
+                                            <div class="skill-percent">60%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Excel</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 70%;"></div>
+                                            <div class="skill-percent">70%</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="skills-content padd-15">
+                                <div class="row">
+                                    <div class="skill-item padd-15">
+                                        <h5>Power BI</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 72%;"></div>
+                                            <div class="skill-percent">72%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Word</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 75%;"></div>
+                                            <div class="skill-percent">75%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Bootstrap</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 70%;"></div>
+                                            <div class="skill-percent">70%</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="skills-content padd-15">
+                                <div class="row">
+                                    <div class="skill-item padd-15">
+                                        <h5>SQL</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 62%;"></div>
+                                            <div class="skill-percent">62%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Java</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 55%;"></div>
+                                            <div class="skill-percent">55%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>C</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 60%;"></div>
+                                            <div class="skill-percent">60%</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="skills-content padd-15">
+                                <div class="row">
+                                    <div class="skill-item padd-15">
+                                        <h5>C++</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 77%;"></div>
+                                            <div class="skill-percent">77%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Tableau </h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 60%;"></div>
+                                            <div class="skill-percent">60%</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Power Point</h5>
+                                        <div class="progress">
+                                            <div class="progress-in" style="width: 60%;"></div>
+                                            <div class="skill-percent">60%</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--Skills Section Ends-->
+                <!--Projects Section Starts-->
+
+                <div class="row">
+                    <div class="projects padd-15">
+                        <div style="text-align: center;">
+                            <h3 class="title">Projects</h3>
+                        </div>
+
+                        <div class="row">
+                            <div class="project-item padd-15 shadow-dark">
+                                <div class="row">
+                                    <div class="project-item-inner">
+                                        <div class="project-item-inner1 padd-15 ">
+                                            <img src="./styles/imgs/churn.jpeg" alt="rms" class="icon">
+                                        </div>
+                                        <div class="project-item-inner2 padd-15 ">
+                                            <h4>Churn Prediction</h4>
+                                            <p> Led a team in implementing a Churn Prediction Model for a
+                                                telecommunications company during my college major project, analyzing a
+                                                comprehensive Kaggle dataset on contract details, monthly charges, and
+                                                service usage patterns to enhance model accuracy and efficiency.</p>
+                                        </div>
+                                        <div class=" project-item-inner2 padd-15">
+                                            <div class="buttons padd-15" style="justify-content: center;">
+                                                <a href="https://github.com/SaksWeb/Churn-Prediction" target="_blank"
+                                                    class="btn">Project Code</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-item padd-15 shadow-dark">
+                                <div class="row">
+                                    <div class="project-item-inner">
+                                        <div class="project-item-inner1 padd-15 ">
+                                            <img src="./styles/imgs/dashboard.png" alt="rms" class="icon">
+                                        </div>
+                                        <div class="project-item-inner2 padd-15 ">
+                                            <h4>Dynamic Data Analysis</h4>
+                                            <p>Created an intuitive user interface allowing users to upload CSV or Excel
+                                                files for analysis.Utilized pandas for data manipulation, descriptive
+                                                statistics, and data type analysis, providing insights into the
+                                                structure and composition of the dataset.
+
+                                            </p>
+                                        </div>
+                                        <div class=" project-item-inner2 padd-15">
+                                            <div class="buttons padd-15" style="justify-content: center;">
+                                                <a href="https://github.com/SaksWeb/EDA_Dashboard_Streamlit"
+                                                    target="_blank" class="btn">Project Code</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-item padd-15 shadow-dark">
+                                <div class="row">
+                                    <div class="project-item-inner">
+                                        <div class="project-item-inner1 padd-15 ">
+                                            <img src="./styles/imgs/Atrial Fibrillation Classification.png" alt="rms"
+                                                class="icon">
+                                        </div>
+                                        <div class="project-item-inner2 padd-15 ">
+                                            <h4>Atrial Fibrillation Classification</h4>
+                                            <p>This is a CNN based model which aims to automatically classify the ECG
+                                                signals of a normal patient vs. a patient with Atrial Fibrillation and
+                                                has been trained to achieve up to 93.33% validation accuracy.The CNN
+                                                used here is 1D Convolutional Neural Networks.</p>
+                                        </div>
+                                        <div class=" project-item-inner2 padd-15">
+                                            <div class="buttons padd-15" style="justify-content: center;">
+                                                <a href="https://github.com/SaksWeb/ECG-Atrial-Fibrillation-Classification-Using-CNN"
+                                                    target="_blank" class="btn">Project Code</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--Open Source Contributions-->
+                        <div style="text-align: center;">
+                            <h3 class="title">Services</h3>
+                        </div>
+                        <div class="row">
+                            <div class="project-item padd-15 shadow-dark">
+                                <div class="row">
+                                    <div class="project-item-inner">
+                                        <div class="project-item-inner1 padd-15 ">
+                                            <img src="./styles/imgs/wd.jpg" alt="rms" class="icon">
+                                        </div>
+                                        <div class="project-item-inner2 padd-15 ">
+                                            <h4>Web Development</h4>
+                                            <p>Building responsive and dynamic websites using the latest technologies
+                                                and best practices.</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-item padd-15 shadow-dark">
+                                <div class="row">
+                                    <div class="project-item-inner">
+                                        <div class="project-item-inner1 padd-15 ">
+                                            <img src="./styles/imgs/python.jpg" alt="rms" class="icon">
+                                        </div>
+                                        <div class="project-item-inner2 padd-15 ">
+                                            <h4>Python Projects</h4>
+                                            <p>Developing robust Python applications for data science, automation, and
+                                                more.</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-item padd-15 shadow-dark">
+                                <div class="row">
+                                    <div class="project-item-inner">
+                                        <div class="project-item-inner1 padd-15 ">
+                                            <img src="./styles/imgs/fd.jpg" alt="rms" class="icon">
+                                        </div>
+                                        <div class="project-item-inner2 padd-15 ">
+                                            <h4>Flask and Django</h4>
+                                            <p>Creating scalable web applications using Flask and Django frameworks.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Projects Section Ends-->
+
+                <div style="text-align: center;">
+                    <h3 class="title">Achievements</h3>
+                </div>
+                <div class="row">
+                    <div class="achieve-item padd-15 shadow-dark">
+                        <div class="row">
+                            <div data-iframe-width="290" data-iframe-height="320"
+                                data-share-badge-id="9a6862af-5b78-4e65-b5e3-2adec6b2fb4c"
+                                data-share-badge-host="https://www.credly.com"></div>
+                            <script type="text/javascript" async
+                                src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+                        </div>
+                    </div>
+                    <div class="achieve-item padd-15 shadow-dark">
+                        <div class="row">
+                            <div data-iframe-width="290" data-iframe-height="320"
+                                data-share-badge-id="b6bc2776-1ae2-42a9-90ff-c9ea88e02615"
+                                data-share-badge-host="https://www.credly.com"></div>
+                            <script type="text/javascript" async
+                                src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+                        </div>
+                    </div>
+
+                    <div class="achieve-item padd-15 shadow-dark">
+                        <div data-iframe-width="290" data-iframe-height="320"
+                            data-share-badge-id="cb73bb40-410e-4e77-8f7d-3594ad6fa3f4"
+                            data-share-badge-host="https://www.credly.com"></div>
+                        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                    </div>
+                    <div class="achieve-item padd-15 shadow-dark">
+                        <<div data-iframe-width="290" data-iframe-height="320"
+                            data-share-badge-id="4ba77f46-7a65-4cbf-864e-a057cfec308d"
+                            data-share-badge-host="https://www.credly.com">
+                    </div>
+                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                </div>
+                <div class="achieve-item padd-15 shadow-dark">
+                    <div data-iframe-width="290" data-iframe-height="320"
+                        data-share-badge-id="a980cb81-b941-47b7-a170-5eadd11313d1"
+                        data-share-badge-host="https://www.credly.com"></div>
+                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                </div>
+                <div class="achieve-item padd-15 shadow-dark">
+                    <div data-iframe-width="290" data-iframe-height="320"
+                        data-share-badge-id="1efdc3fa-2d79-4a76-a3fa-374ebf0988dd"
+                        data-share-badge-host="https://www.credly.com"></div>
+                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                </div>
+                <div class="achieve-item padd-15 shadow-dark">
+                    <div data-iframe-width="290" data-iframe-height="320"
+                        data-share-badge-id="c852f6ea-0bd9-47b9-92ba-a703f6f58cd8"
+                        data-share-badge-host="https://www.credly.com"></div>
+                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                </div>
+                <div class="achieve-item padd-15 shadow-dark">
+                    <div data-iframe-width="290" data-iframe-height="320"
+                        data-share-badge-id="6d101656-d097-42a3-bea9-16af4c1fc0cb"
+                        data-share-badge-host="https://www.credly.com"></div>
+                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="achieve padd-15">
+
+                <div class="row">
+                    <div style="text-align: center;">
+                        <h3 class="title">Certification Courses</h3>
+
+                    </div>
+                    <div class="row">
+                        <div class="buttons padd-15" style="justify-content: space-around; margin-bottom: 60px;">
+
+                            <a href="https://drive.google.com/file/d/1zlqPKYtN6LGHEiq7mnoEH4BEk8eiUKHd/view?usp=sharing"
+                                target="_blank" class="btn">Python</a>
+                            <a href="https://drive.google.com/file/d/1ZI7BPrpOy6Y7rc45Pa9BPPbfmcETn72g/view?usp=sharing"
+                                target="_blank" class="btn">C++</a>
+                            <a href="https://drive.google.com/file/d/1Pp_qeKNBHsXARaBWIB2NK7dLThT8K9_4/view?usp=sharing"
+                                target="_blank" class="btn">Machine Learning</a>
+                            <a href="https://drive.google.com/file/d/1ZjyRBYwMsccP48Dk0JU_FSyJCmfk0ICP/view?usp=sharing"
+                                target="_blank" class="btn">C</a>
+                            <a href="https://drive.google.com/file/d/1iagSAjJgnavb_qFhJ8QYF90jo_0sRXER/view?usp=sharing"
+                                target="_blank" class="btn">Data Engineer</a>
+                            <a href="https://drive.google.com/file/d/1o8I4KOEeIwSAazvP_Y_JKYCNB-dnftcy/view?usp=sharing"
+                                target="_blank" class="btn">Cloud Computing</a>
+                            <a href="https://drive.google.com/file/d/18KNgrgKlIXlsC4yi9RQnVhbQXVH7pQ0M/view?usp=sharing"
+                            target="_blank" class="btn">JavaScript</a> 
+                            <a href="https://drive.google.com/file/d/1MHIG4BtZ2j7q4z-xq4K9SM1qccpm-BX2/view?usp=sharing"
+                            target="_blank" class="btn">HTML Attributes</a>    
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--Achievements Section Ends-->
+            </section>
+            <!--Portfolio Section Ends-->
+            <!--Contact us Section Starts-->
+
+            <section class="contact section" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Contact Me</h2>
+                        </div>
+                    </div>
+
+
+
+                    <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
+
+                    
+
+                        <form method="POST" id="form">
+                            <input type="hidden" name="from_name" value="Portoflio message">
+                            <input type="hidden" name="access_key" value="f115796d-53bd-4fc6-b33a-f059dad06d80">
+                            <div class="input-box">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="input-box">
+                                <input type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div>
+                                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                            </div>
+                            <div class="input-box">
+                                <input type="text" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="input-box">
+                                <textarea name="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="input-box">
+                                <button type="submit" class="btn-1">Send Message</button>
+                            </div>
+                            <div id="result"></div>
+                        </form>
+
+                    
+                </div>
+            </div>
+        </section>
+
+        <!--Contact us Section Ends-->
 
     </div>
-    <div class="dropdown_menu">
-        <ul class="links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+
+
+    </div>
+    <!--Main Container Ends-->
+    <!--Style Switcher Start-->
+    <div class="style-switcher">
+        <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <div class="day-night s-icon">
+            <i class="fas "></i>
+        </div>
+        <h4>Theme Color</h4>
+        <div class="colors">
+            <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+            <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+            <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <header class="hero">
-            <div class="overlay">
-
-            </div>
-
-            <video autoplay muted loop>
-                <source src="video.mp4" type="video/mp4">
-            </video>
-            <div class="content fade-in">
-                <h1>Welcome to</h1>
-                <h2>Saksham Shrivastava's Portfolio</h2>
-                <a href="#projects" class="btn">View Projects</a>
-            </div>
-        </header>
-    </section>
-
-    <!-- Scroll Up Image -->
-    <div id="scroll-up-img" onclick="scrollToTop()">
-        <img src="uparrow2.png" alt="Scroll to top">
-    </div>
-
-    <!-- About Section -->
-    <section id="about" class="container fade-in-up">
-        <img src="IMG-20220525-WA0094.png" alt="Saksham Shrivastava">
-        <div>
-            <h2>About Me</h2>
-            <p>Hello! I'm Saksham Shrivastava, a passionate Data Scientist and Machine Learning Expert with a
-                keen interest in developing innovative solutions to complex problems. I have extensive
-                experience in Python, C++, and a deep understanding of various Data Science and Machine
-                Learning techniques.</p>
-            <p>My journey started with a love for programming and a curiosity for data. Over the years, I've
-                honed my skills through various projects and real-world applications, always striving to
-                learn and grow in this ever-evolving field.</p>
-            <p>I'm constantly exploring new technologies and methodologies to stay at the forefront of the
-                industry. Let's connect and create something amazing together!</p>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects fade-in-up" style="z-index: 0;">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-cards">
-                <div class="project-card">
-                    <img src="churn.jpeg" alt="Project 1">
-                    <h3 class="project-title" style="text-decoration: underline;">Churn Prediction</h3> <br>
-                    <i>
-                        <p class="project-description">Led a team in implementing a Churn Prediction Model for a
-                            telecommunications company during my college major project, analyzing a comprehensive Kaggle
-                            dataset on contract details, monthly charges, and service usage patterns to enhance model
-                            accuracy and efficiency.
+    <!--Style Switcher End-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js"
+        integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/style-switcher.js"></script>
 
 
-
-
-
-                        </p>
-                    </i>
-
-                    <a href="https://github.com/SaksWeb/Churn-Prediction" target="_blank" class="project-link">View in
-                        GitHub</a>
-                </div>
-                <div class="project-card">
-                    <img src="dashboard.png" alt="Project 2">
-                    <h3 class="project-title" style="text-decoration: underline;">Dynamic Data Analysis</h3> <br>
-                    <i>
-                        <p class="project-description">Created an intuitive user interface allowing users to upload CSV
-                            or
-                            Excel files for analysis.Utilized pandas for data manipulation, descriptive statistics, and
-                            data
-                            type analysis, providing insights into the
-                            structure and composition of the dataset.
-                        </p>
-                    </i>
-                    <a href="https://github.com/SaksWeb/EDA_Dashboard_Streamlit" target="_blank"
-                        class="project-link">View in GitHub</a>
-                </div>
-                <div class="project-card">
-                    <img src="Atrial Fibrillation Classification.png" alt="Project 3">
-                    <h3 class="project-title" style="text-decoration: underline;">Atrial Fibrillation Classification
-                    </h3><br>
-                    <i>
-                        <p class="project-description">This is a CNN based model which aims to automatically classify
-                            the
-                            ECG signals of a normal patient vs. a patient with Atrial Fibrillation and has been trained
-                            to
-                            achieve up to 93.33% validation accuracy.The CNN used here is 1D Convolutional Neural
-                            Networks.
-                        </p>
-                    </i>
-                    <a href="https://github.com/SaksWeb/ECG-Atrial-Fibrillation-Classification-Using-CNN"
-                        target="_blank" class="project-link">View in GitHub</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Services</h2>
-            <div class="services-container">
-                <div class="service">
-                    <i class="fas fa-code service-icon"></i>
-                    <h3 class="service-title">Web Development</h3>
-                    <p class="service-description">Building responsive and dynamic websites using the latest
-                        technologies and best practices.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-project-diagram service-icon"></i>
-                    <h3 class="service-title">Python Projects</h3>
-                    <p class="service-description">Developing robust Python applications for data science, automation,
-                        and more.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-server service-icon"></i>
-                    <h3 class="service-title">Flask & Django</h3>
-                    <p class="service-description">Creating scalable web applications using Flask and Django frameworks.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-
-            <div class="skill fade-in">
-                <div class="skill-icon" style="background-image: url('python.png');"></div>
-                <h3 class="skill-title">Python</h3>
-                <p class="skill-description">Experienced in Python for data analysis, web development, and automation.
-                </p>
-                <a href="https://drive.google.com/file/d/1zlqPKYtN6LGHEiq7mnoEH4BEk8eiUKHd/view?usp=sharing"
-                    target="_blank" class="project-link">View Certificate</a>
-            </div>
-            <div class="skill fade-in">
-                <div class="skill-icon" style="background-image: url('c++.png');"></div>
-                <h3 class="skill-title">C++</h3>
-                <p class="skill-description">Proficient in C++ for system programming and performance-critical
-                    applications.</p>
-                <a href="https://drive.google.com/file/d/1ZI7BPrpOy6Y7rc45Pa9BPPbfmcETn72g/view?usp=sharing"
-                    target="_blank" class="project-link">View Certificate</a>
-            </div>
-            <div class="skill fade-in">
-                <div class="skill-icon" style="background-image: url('ml.png');"></div>
-                <h3 class="skill-title">Machine Learning</h3>
-                <p class="skill-description">Skilled in building and deploying machine learning models.</p>
-                <a href="AWS_Academy_Graduate___AWS_Academy_Machine_Learning_Foundations_Badge20230805-28-4b3cdc.pdf"
-                    target="_blank" class="project-link">View Certificate</a>
-            </div>
-            <div class="skill fade-in">
-                <div class="skill-icon" style="background-image: url('c.png');"></div>
-                <h3 class="skill-title">C</h3>
-                <p class="skill-description">Proficient in C for system programming and performance-critical
-                    applications.</p>
-                <a href="https://drive.google.com/file/d/1ZjyRBYwMsccP48Dk0JU_FSyJCmfk0ICP/view?usp=sharing"
-                    target="_blank" class="project-link">View Certificate</a>
-            </div>
-            <div class="skill fade-in">
-                <div class="skill-icon" style="background-image: url('ds.jpeg');"></div>
-                <h3 class="skill-title">Data Science</h3>
-                <p class="skill-description">Proficient in data analysis and visualization techniques.</p>
-                <a href="AWS_Academy_Graduate___AWS_Academy_Data_Engineering_Badge20230805-28-tjetz9.pdf"
-                    target="_blank" class="project-link">View Certificate</a>
-            </div>
-            <div class="skill fade-in">
-                <div class="skill-icon" style="background-image: url('cloud.png');"></div>
-                <h3 class="skill-title">Cloud Computing</h3>
-                <p class="skill-description">Knowledgeable in Cloud Computing</p>
-                <a href="https://drive.google.com/file/d/1o8I4KOEeIwSAazvP_Y_JKYCNB-dnftcy/view?usp=sharing"
-                    target="_blank" class="project-link">View Certificate</a>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section fade-in-up">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3>Coderscave</h3>
-                    <p>Role: Data Science Intern</p>
-                    <li>Performed data analysis and visualization tasks</li>
-                    <li>Assisted in developing machine learning models</li>
-                    <li>Collaborated with the team to solve real-world challenges</li>
-                </div>
-                <div class="experience-card">
-                    <h3>Codeclause</h3>
-                    <p>Role: Python Developer Intern</p>
-
-                    <li>Contributed to building Python applications</li>
-                    <li>Debugged and enhanced existing codebase</li>
-                    <li>Participated in code reviews and discussions</li>
-
-                </div>
-                <div class="experience-card">
-                    <h3>Internshala</h3>
-                    <p>Role: Internshala Student Partner</p>
-                    <li>Promoted internship opportunities to fellow students</li>
-                    <li>Conducted workshops on resume building and interview skills</li>
-                    <li>Collaborated with Internshala to enhance campus reach</li>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <video autoplay muted loop>
-            <source src="email1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="contact-form">
-            
-            
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form method="POST" id="form">
-                <input type="hidden" name="from_name" value="Portoflio message">
-                <input type="hidden" name="access_key" value="f115796d-53bd-4fc6-b33a-f059dad06d80">
-                <div class="input-box">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="input-box">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div>
-                <input type="tel" name="phone" placeholder="Your Phone Number" required></div>
-                <div class="input-box">
-                    <input type="text" name="subject" placeholder="Subject" required>
-                </div>
-                <div class="input-box">
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <div class="input-box">
-                    <button type="submit" class="btn-1">Send Message</button>
-                </div>
-                <div id="result"></div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <!-- Footer -->
-    <footer>
-
-        <p>&copy; 2023 Saksham Shrivastava. All rights reserved.</p>
-        <ul class="social-icons">
-            <li><a href="https://www.linkedin.com/in/saksham-shrivastava-a77786205" class="fab fa-linkedin"></a></li>
-            <li><a href="https://github.com/SaksWeb" class="fab fa-github"></a></li>
-            <li><a href="https://instagram.com/sakshamshrivastava662?igshid=YmMyMTA2M2Y=" class="fab fa-instagram"></a>
-            </li>
-        </ul>
-    </footer>
-
-    <!-- JavaScript for Scroll Up Button and Skills Scroll -->
-    <script>
-        
-        window.addEventListener('scroll', function () {
-            const scrollUpImg = document.getElementById('scroll-up-img');
-            if (window.scrollY > 300) {
-                scrollUpImg.classList.add('show');
-            } else {
-                scrollUpImg.classList.remove('show');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        const toggleBtn = document.querySelector('.toggle_btn');
-        const toggleBtnIcon = document.querySelector('.toggle_btn i');
-        const dropDownMenu = document.querySelector('.dropdown_menu');
-
-        toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open');
-            const isOpen = dropDownMenu.classList.contains('open');
-            toggleBtnIcon.className = isOpen
-                ? 'fa-solid fa-xmark'
-                : 'fa-solid fa-bars';
-        }
-
-        window.addEventListener('scroll', function () {
-            var navbar = document.querySelector('.navbar');
-            var aboutSection = document.getElementById('about').offsetTop;
-            var projectsSection = document.getElementById('projects').offsetTop;
-            var servicesSection = document.getElementById('services').offsetTop;
-            var skillsSection = document.getElementById('skills').offsetTop;
-
-            if (window.scrollY <= aboutSection) {
-                navbar.style.backgroundColor = 'transparent';
-            } else if (window.scrollY >= aboutSection && window.scrollY < projectsSection) {
-                navbar.style.backgroundColor = 'red';
-            } else if (window.scrollY >= projectsSection && window.scrollY < servicesSection) {
-                navbar.style.backgroundColor = 'blue';
-            } else if (window.scrollY >= servicesSection && window.scrollY < skillsSection) {
-                navbar.style.backgroundColor = 'purple';
-            } else if (window.scrollY >= skillsSection) {
-                navbar.style.backgroundColor = 'orange';
-            }
-        });
-
-
-
-
-    </script>
     <script>
         const form = document.getElementById('form');
         const result = document.getElementById('result');
 
-        form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-        result.innerHTML = "Please wait..."
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            result.innerHTML = "Please wait..."
 
             fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: json
-                })
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
                 .then(async (response) => {
                     let json = await response.json();
                     if (response.status == 200) {
@@ -1116,7 +905,7 @@
                     console.log(error);
                     result.innerHTML = "Something went wrong!";
                 })
-                .then(function() {
+                .then(function () {
                     form.reset();
                     setTimeout(() => {
                         result.style.display = "none";
